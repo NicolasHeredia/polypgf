@@ -32,9 +32,3 @@ class KineticArrhenius:
             return self.k_ref * np.exp(- (self.Ea / self.R) * ((1 / self.T_ref) - (1 / T)))
         else:
             raise ValueError("Either 'A' or both 'k_ref' and 'T_ref' must be provided.")
-
-
-
-kk = KineticArrhenius(A=200, name='propagation', Ea=2.5)
-print(kk)
-print(kk.value(350))
