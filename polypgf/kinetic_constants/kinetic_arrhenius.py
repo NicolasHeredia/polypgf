@@ -1,6 +1,5 @@
+from typing import Optional, Union
 import numpy as np
-from typing import Union, Optional
-
 
 class KineticArrhenius:
     def __init__(
@@ -39,4 +38,6 @@ class KineticArrhenius:
                 -(self.Ea / self.R) * ((1 / self.T_ref) - (1 / T))
             )
         else:
-            raise ValueError("Either 'A' or both 'k_ref' and 'T_ref' must be provided.")
+            raise ValueError(
+                "Either 'A' or both 'k_ref' and 'T_ref' must be provided."
+            )
