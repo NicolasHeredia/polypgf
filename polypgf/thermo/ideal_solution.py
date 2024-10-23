@@ -1,4 +1,5 @@
 import numpy as np
 
-class IdealSolution():
+
+class IdealSolution:
     pass
