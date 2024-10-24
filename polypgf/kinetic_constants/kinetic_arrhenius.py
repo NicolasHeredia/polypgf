@@ -1,6 +1,7 @@
 from typing import Optional, Union
 import numpy as np
 
+
 class KineticArrhenius:
     def __init__(
         self,
@@ -39,5 +40,5 @@ class KineticArrhenius:
             )
         else:
             raise ValueError(
-                "Either 'A' or both 'k_ref' and 'T_ref' must be provided."
+                "Either 'A' or both 'k_ref' " "and 'T_ref' must be provided."
             )

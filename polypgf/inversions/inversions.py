@@ -1,6 +1,8 @@
-from math import factorial
 import numpy as np
+
+from math import factorial
 from typing import Callable, List
+
 
 def Kn(n: int, N: int) -> float:
     """Parameter Kn of Stehfest method.
@@ -21,7 +23,7 @@ def Kn(n: int, N: int) -> float:
     lw = int((n + 1) / 2)
     up = int(min(n, N / 2))
     for k in range(lw, up + 1):
-        numerador = (k ** (N / 2) * factorial(2 * k))
+        numerador = k ** (N / 2) * factorial(2 * k)
         denominador = (
             factorial(int(N / 2) - k)
             * factorial(k)
@@ -34,12 +36,13 @@ def Kn(n: int, N: int) -> float:
 
     return K_n
 
+
 def stehfest(
-    N: int, 
-    DP: List[float], 
-    t: float, 
-    func: Callable[[float, float], List[float]], 
-    pos: int
+    N: int,
+    DP: List[float],
+    t: float,
+    func: Callable[[float, float], List[float]],
+    pos: int,
 ) -> List[float]:
     """Stehfest method.
 

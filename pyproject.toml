@@ -1,0 +1,38 @@
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = ["setuptools", "wheel"]
+
+[tool.black]
+line-length = 79
+target-version = ["py310"]
+
+[project]
+name = "polypgf"
+version = "0.0.1"
+authors = [{name = "Heredia, Ángel Nicolás", email = "nico.heredia@mi.unc.edu.ar"},
+           {name = "Theran, Oscar Ivan", email = "oscar.theran@mi.unc.edu.ar"}]
+
+readme = "README.md"
+description = "Package for the simulation polymerization reactors"
+keywords = ["chemical reactor", "polymerization", "reactor simulation", "probability generative functions"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Education",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.10",
+    "Topic :: Scientific/Engineering",
+]
+
+urls = {Homepage = "https://github.com/NicolasHeredia/polypgf.git"}
+
+dependencies = [
+    'ipython',
+    'numpy >= 1.24.3',
+    'scipy >= 1.10.1'
+]
+
+[flake8]
+max-line-length = 79
