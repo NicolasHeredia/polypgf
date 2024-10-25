@@ -24,43 +24,39 @@ class ReactionType:
 REACTION_SPECS = {
     ReactionType.descomposition: {
         "reactants": {"I": 1},
-        "products": {},
-        "rate_equation": lambda k, conc: k * conc["A"] * conc["O2"],
+        "products": {"radicals": 1},
+        "rate_equation": lambda k, conc: k * conc["I"]
     },
     ReactionType.initiation: {
-        "reactants": {"A": 1, "H2O": 1},
-        "products": {"B": 1, "C": 1},
-        "rate_equation": lambda k, conc: k * conc["A"] * conc["H2O"],
-        "delta_H": -50.0,
+        "reactants": {"I": 1},
+        "products": {"radicals": 1},
+        "rate_equation": lambda k, f, conc: 2 * f * k * conc["I"],
     },
     ReactionType.propagation: {
-        "reactants": {"A": 1},
-        "products": {"B": 1},
-        "rate_equation": lambda k, conc: k * conc["A"],
-        "delta_H": 30.0,
+        "reactants": {"M": 1, "Y0": 1},
+        "products": {"radicals"},
+        "rate_equation": lambda k, conc: k * conc["M"] * conc["Y0"],
     },
     ReactionType.termination_comb: {
-        "reactants": {"A": 1},
-        "products": {"B": 1, "C": 1},
-        "rate_equation": lambda k, conc: k * conc["A"],
-        "delta_H": 45.0,
+        "reactants": {"Y0": 1},
+        "products": {"polymer": 1},
+        "rate_equation": lambda k, conc: k * (conc["Y0"])**2,
     },
     ReactionType.termination_desp: {
-        "reactants": {"A": 1, "B": 1},
-        "products": {"C": 1},
-        "rate_equation": lambda k, conc: k * conc["A"] * conc["B"],
-        "delta_H": -85.0,
+        "reactants": {"Y0": 1},
+        "products": {"polymer": 1},
+        "rate_equation": lambda k, conc: k * conc["Y0"],
     },
     ReactionType.monomer_transfer: {
-        "reactants": {"A": 1, "B": 1},
-        "products": {"C": 1},
-        "rate_equation": lambda k, conc: k * conc["A"] * conc["B"],
-        "delta_H": -85.0,
+        "reactants": {"M": 1, "Y0": 1},
+        "products": {"radicals": 1, "polymer": 1},
+        "rate_equation": lambda k, conc: k * conc["M"] * conc["Y0"],
     },
     ReactionType.solvent_transfer: {
-        "reactants": {"A": 1, "B": 1},
-        "products": {"C": 1},
-        "rate_equation": lambda k, conc: k * conc["A"] * conc["B"],
-        "delta_H": -85.0,
+        "reactants": {"S": 1, "Y0": 1},
+        "products": {"radicals": 1, "polymer": 1},
+        "rate_equation": lambda k, conc: k * conc["S"] * conc["Y0"],
     },
 }
+
+
