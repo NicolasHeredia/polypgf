@@ -5,12 +5,24 @@ from polypgf.kinetic_constants.kinetic_arrhenius import KineticArrhenius
 
 @pytest.fixture
 def kinetic_with_A():
-    return KineticArrhenius(name="Reaction1", Ea=50000, A=1e12, k_ref=None, T_ref=None)
+    return KineticArrhenius(
+        name="Reaction1",
+        Ea=50000,
+        A=1e12,
+        k_ref=None,
+        T_ref=None,
+    )
 
 
 @pytest.fixture
 def kinetic_with_kref():
-    return KineticArrhenius(name="Reaction2", Ea=60000, A=None, k_ref=1e5, T_ref=298)
+    return KineticArrhenius(
+        name="Reaction2",
+        Ea=60000,
+        A=None,
+        k_ref=1e5,
+        T_ref=298,
+    )
 
 
 def test_repr(kinetic_with_A):
