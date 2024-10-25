@@ -33,3 +33,6 @@ dependencies = [
     'numpy >= 1.24.3',
     'scipy >= 1.10.1'
 ]
+
+[flake8]
+max-line-length = 79
