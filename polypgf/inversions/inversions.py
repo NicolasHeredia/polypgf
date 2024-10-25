@@ -1,7 +1,7 @@
-import numpy as np
-
 from math import factorial
 from typing import Callable, List
+
+import numpy as np
 
 
 def Kn(n: int, N: int) -> float:

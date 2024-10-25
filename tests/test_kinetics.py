@@ -1,27 +1,37 @@
-import pytest
 import numpy as np
+
 from polypgf.kinetic_constants.kinetic_arrhenius import KineticArrhenius
+
+import pytest
 
 
 @pytest.fixture
 def kinetic_with_A():
     return KineticArrhenius(
+<<<<<<< HEAD
         name="Reaction1",
         Ea=50000,
         A=1e12,
         k_ref=None,
         T_ref=None,
+=======
+        name="Reaction1", Ea=50000, A=1e12, k_ref=None, T_ref=None
+>>>>>>> a4ce4e4340dbee62cd89c30a046c4ae5d679f78e
     )
 
 
 @pytest.fixture
 def kinetic_with_kref():
     return KineticArrhenius(
+<<<<<<< HEAD
         name="Reaction2",
         Ea=60000,
         A=None,
         k_ref=1e5,
         T_ref=298,
+=======
+        name="Reaction2", Ea=60000, A=None, k_ref=1e5, T_ref=298
+>>>>>>> a4ce4e4340dbee62cd89c30a046c4ae5d679f78e
     )
 
 
@@ -60,6 +70,7 @@ def test_value_raises_error():
         name="Invalid", Ea=60000, A=None, k_ref=None, T_ref=None
     )
     with pytest.raises(
-        ValueError, match="Either 'A' or both 'k_ref' and 'T_ref' must be provided."
+        ValueError,
+        match="Either 'A' or both 'k_ref' and 'T_ref' must be provided.",
     ):
         kinetic_invalid.value(350)
